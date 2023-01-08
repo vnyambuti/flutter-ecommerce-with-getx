@@ -14,15 +14,60 @@ class ProfileWithoutLogin extends StatelessWidget {
       children: [
         Container(
           height: topcontainerheight,
-          child: Column(
+          child: Stack(
             children: [
-              Container(
-                height: topcontainerheight * .58,
-                color: AppColors.dummyBGColor,
+              Column(
+                children: [
+                  Container(
+                    height: topcontainerheight * .58,
+                    color: AppColors.dummyBGColor,
+                  ),
+                  Container(
+                    height: topcontainerheight * .42,
+                    color: AppColors.whitecolor,
+                  )
+                ],
               ),
-              Container(
-                height: topcontainerheight * .42,
-                color: AppColors.whitecolor,
+              Positioned(
+                bottom: 20,
+                left: 20,
+                child: Container(
+                  width: 132,
+                  height: 132,
+                  child: Card(
+                    child: Container(
+                      child: Padding(
+                        padding: const EdgeInsets.all(25),
+                        child: Image.asset(
+                          "assets/images/profile.png",
+                          color: AppColors.bodytextColor1,
+                        ),
+                      ),
+                    ),
+                  ),
+                ),
+              ),
+              Positioned(
+                left: 170,
+                bottom: 22,
+                child: Container(
+                  child: ElevatedButton(
+                      style: ButtonStyle(
+                        backgroundColor:
+                            MaterialStateProperty.all(AppColors.red),
+                      ),
+                      onPressed: () => {},
+                      child: Container(
+                        width: MediaQuery.of(context).size.width - 210,
+                        child: Center(
+                          child: Text(
+                            "LOGIN/SIGNUP",
+                            style: TextStyle(
+                                fontSize: 11, fontWeight: FontWeight.w600),
+                          ),
+                        ),
+                      )),
+                ),
               )
             ],
           ),
@@ -79,6 +124,21 @@ class ProfileWithoutLogin extends StatelessWidget {
           height: 15,
         ),
         FooterProfile(),
+        SizedBox(
+          height: 50,
+        ),
+        Container(
+          child: Text(
+            "APP VERSION 0.0.1",
+            style: TextStyle(
+                fontSize: 11.5,
+                fontWeight: FontWeight.w400,
+                color: AppColors.bodytextColor1),
+          ),
+        ),
+        SizedBox(
+          height: 80,
+        )
       ],
     );
   }

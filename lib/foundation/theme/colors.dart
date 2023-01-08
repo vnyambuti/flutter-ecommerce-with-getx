@@ -7,4 +7,5 @@ class AppColors {
   static Color scaffoldBGColor = Color(0xfff3f3f3);
   static Color bodytextColor1 = Color(0xff7b828c);
   static Color captiontextColor1 = Color(0xffbcbabf);
+  static Color red = Color(0xfffe416c);
 }
