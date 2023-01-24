@@ -7,7 +7,7 @@ import 'package:http/http.dart' as HTTP;
 class HttpClient {
   static final client = HTTP.Client();
   final storage = new FlutterSecureStorage();
-  static final String host = "https://6fb1-105-162-2-130.ngrok.io/api/";
+  static final String host = "https://eed9-197-248-147-37.ngrok.io/api/";
   static Future post(endpoint, body) async {
     try {
       var response =

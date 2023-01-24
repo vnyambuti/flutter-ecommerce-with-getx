@@ -1,6 +1,8 @@
 import 'package:ecom1/feature/login/login_controller.dart';
+import 'package:ecom1/feature/register/register.dart';
 import 'package:ecom1/foundation/sp_icons/sp_button.dart';
 import 'package:ecom1/foundation/theme/colors.dart';
+import 'package:flutter/gestures.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
@@ -11,7 +13,7 @@ class LoginBottomSheet extends StatelessWidget {
   Widget build(BuildContext context) {
     return SafeArea(
       child: Container(
-        height: MediaQuery.of(context).size.height * 0.75,
+        height: MediaQuery.of(context).size.height / 2.5,
         color: Colors.white,
         padding: EdgeInsets.symmetric(vertical: 30, horizontal: 30),
         child: Column(
@@ -145,7 +147,7 @@ class LoginBottomSheet extends StatelessWidget {
                       width: MediaQuery.of(context).size.width,
                       child: Center(
                         child: Text(
-                          "CONTINUE",
+                          "LOGIN",
                           style: TextStyle(
                               fontSize: 11, fontWeight: FontWeight.w600),
                         ),
@@ -170,7 +172,11 @@ class LoginBottomSheet extends StatelessWidget {
                         fontSize: 12, color: AppColors.captiontextColor1)),
                 TextSpan(
                     text: " Register  ",
-                    style: TextStyle(fontSize: 14, color: AppColors.red)),
+                    style: TextStyle(fontSize: 14, color: AppColors.red),
+                    recognizer: TapGestureRecognizer()
+                      ..onTap = () {
+                        Get.to(Register());
+                      }),
               ]),
             ),
           ],
