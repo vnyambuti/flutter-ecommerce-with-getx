@@ -8,6 +8,9 @@ class InputField extends StatelessWidget {
       required this.text,
       this.icon,
       required this.obscure,
+      required this.textController,
+      this.onchange,
+      this.validator,
       required this.inputType})
       : super(key: key);
 
@@ -16,20 +19,19 @@ class InputField extends StatelessWidget {
   Widget? icon;
   bool obscure;
   TextInputType inputType;
+  final TextEditingController textController;
+  Function(String value)? onchange;
+  String? Function(String?)? validator;
   @override
   Widget build(BuildContext context) {
     return Container(
       child: TextFormField(
-        // controller: logincontroller.PasswordEditingController,
+        controller: textController,
         keyboardType: inputType,
         obscureText: obscure,
         style: TextStyle(color: AppColors.captiontextColor1, fontSize: 13),
-        validator: (value) {
-          if (value!.isEmpty) {
-            return "$text" + "  cannot be empty";
-          }
-          return null;
-        },
+        validator: validator,
+        onChanged: onchange,
         decoration: InputDecoration(
           labelText: text,
           labelStyle: TextStyle(fontSize: 13, color: Colors.black54),

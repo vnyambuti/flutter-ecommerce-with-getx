@@ -18,15 +18,20 @@ class MyApp extends StatelessWidget {
       debugShowCheckedModeBanner: false,
       title: "Carry N Go",
       theme: ThemeData(
-          textTheme: TextTheme(
-              headline6: TextStyle(
-                  fontSize: 14.5,
-                  letterSpacing: 0.15,
-                  color: AppColors.headline6),
-              bodyText1:
-                  TextStyle(color: AppColors.bodytextColor1, fontSize: 14),
-              caption:
-                  TextStyle(color: AppColors.captiontextColor1, fontSize: 11))),
+        textTheme: TextTheme(
+            headline6: TextStyle(
+                fontSize: 14.5,
+                letterSpacing: 0.15,
+                color: AppColors.headline6),
+            bodyText1: TextStyle(color: AppColors.bodytextColor1, fontSize: 14),
+            caption:
+                TextStyle(color: AppColors.captiontextColor1, fontSize: 11)),
+        appBarTheme: AppBarTheme(
+            iconTheme: IconThemeData(color: Colors.black),
+            color: AppColors.scaffoldBGColor, //<-- SEE HERE
+            titleTextStyle: TextStyle(color: Colors.black),
+            elevation: 0),
+      ),
       home: LandingPage(),
     );
   }
