@@ -14,6 +14,7 @@ class LandingPage extends StatefulWidget {
 class _LandingPageState extends State<LandingPage> {
   int currentIndex = 0;
   List pages = [Homepage(), Categories(), Profile()];
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(

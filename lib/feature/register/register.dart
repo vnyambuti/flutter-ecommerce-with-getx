@@ -1,3 +1,5 @@
+import 'dart:developer';
+
 import 'package:ecom1/feature/register/register_controller.dart';
 import 'package:ecom1/foundation/sp_icons/sp_button.dart';
 import 'package:ecom1/foundation/sp_icons/sp_input.dart';
@@ -8,6 +10,7 @@ import 'package:get/get.dart';
 class Register extends StatelessWidget {
   Register({Key? key}) : super(key: key);
   final formkey = GlobalKey<FormState>();
+  bool passmatch = true;
   var regcontroller = Get.put(RegisterController());
   @override
   Widget build(BuildContext context) {
@@ -40,11 +43,11 @@ class Register extends StatelessWidget {
                       color: Colors.red,
                     ),
                   ),
-                  SizedBox(height: 10),
+                  SizedBox(height: 20),
                   InputField(
                     validator: (value) {
                       if (value!.isEmpty) {
-                        return "firstname is required";
+                        return "lastname is required";
                       }
                       return null;
                     },
@@ -57,11 +60,11 @@ class Register extends StatelessWidget {
                       color: Colors.red,
                     ),
                   ),
-                  SizedBox(height: 10),
+                  SizedBox(height: 20),
                   InputField(
                     validator: (value) {
                       if (value!.isEmpty) {
-                        return "firstname is required";
+                        return "Email is required";
                       }
                       return null;
                     },
@@ -74,11 +77,11 @@ class Register extends StatelessWidget {
                       color: Colors.red,
                     ),
                   ),
-                  SizedBox(height: 10),
+                  SizedBox(height: 20),
                   InputField(
                     validator: (value) {
                       if (value!.isEmpty) {
-                        return "firstname is required";
+                        return "phone is required";
                       }
                       return null;
                     },
@@ -91,11 +94,11 @@ class Register extends StatelessWidget {
                       color: Colors.red,
                     ),
                   ),
-                  SizedBox(height: 10),
+                  SizedBox(height: 20),
                   InputField(
                     validator: (value) {
                       if (value!.isEmpty) {
-                        return "firstname is required";
+                        return "password is required";
                       }
                       return null;
                     },
@@ -108,15 +111,15 @@ class Register extends StatelessWidget {
                       color: Colors.red,
                     ),
                   ),
-                  SizedBox(height: 10),
+                  SizedBox(height: 20),
                   InputField(
                     validator: (value) {
                       if (value!.isEmpty) {
-                        return "firstname is required";
+                        return "password confirmation is required";
                       }
                       return null;
                     },
-                    onchange: check,
+                    // onchange: check,
                     textController: regcontroller.confrirmController,
                     inputType: TextInputType.text,
                     obscure: true,
@@ -127,13 +130,12 @@ class Register extends StatelessWidget {
                     ),
                   ),
                   SizedBox(
-                    height: 20,
+                    height: 50,
                   ),
                   SPSolid(
-                      text: "CREATE ACCOUNT",
-                      onPressed: () {
-                        formkey.currentState!.validate();
-                      })
+                    text: "CREATE ACCOUNT",
+                    onPressed: regcontroller.register,
+                  )
                 ],
               ),
             ),
@@ -144,8 +146,13 @@ class Register extends StatelessWidget {
   }
 
   check(String value) {
-    if (value != regcontroller.passwordController.value) {
-      print("password does not match");
+    log(value);
+    print(regcontroller.passwordController.value);
+    print(value == regcontroller.passwordController.value);
+    if (value == regcontroller.passwordController.value) {
+      passmatch = true;
+    } else {
+      passmatch = false;
     }
   }
 }

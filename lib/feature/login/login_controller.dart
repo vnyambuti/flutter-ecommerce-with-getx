@@ -1,4 +1,5 @@
 import 'dart:convert';
+import 'dart:developer';
 
 import 'package:ecom1/feature/login/login_model.dart';
 import 'package:ecom1/foundation/services/httpClient.dart';
@@ -17,7 +18,21 @@ class LoginController extends GetxController {
     var error = jsonEncode(response['error']);
     print(error);
     if (response['success']) {
-      print(response);
+      // print(response['user']);
+      await HttpClient.saveUser(json.encode(response['user']));
+      // print(jsonDecode(await HttpClient.getUser());
+      // var data = await HttpClient.getUser();
+      // var data = jsonDecode(response);
+
+      // print(data);
+      // try {
+
+      await HttpClient.storeToken(response['token']);
+      // } catch (e) {
+      //   print(e);
+      // }
+      var tok = await HttpClient.getUser();
+      print(tok);
     } else {
       Get.snackbar("Error", error,
           icon: Icon(Icons.error, color: Colors.white),
