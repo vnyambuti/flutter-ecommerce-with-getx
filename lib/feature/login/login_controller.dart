@@ -15,6 +15,7 @@ class LoginController extends GetxController {
         email: LoginEditingController.text,
         password: PasswordEditingController.text);
     var response = await HttpClient.post("login", LoginModelToJson(loginModel));
+    print(response);
     var error = jsonEncode(response['error']);
     print(error);
     if (response['success']) {

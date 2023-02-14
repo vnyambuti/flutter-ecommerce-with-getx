@@ -10,7 +10,7 @@ class HttpClient {
   String? token;
   static final _storage = FlutterSecureStorage();
 
-  static final String host = "https://94c2-102-217-144-110.ngrok.io/api/";
+  static final String host = "https://c2bc-102-217-144-110.ngrok.io/api/";
   static Future post(endpoint, body) async {
     try {
       var response =
@@ -19,6 +19,19 @@ class HttpClient {
         'Accept': 'application/json',
       });
 
+      return jsonDecode(response.body);
+    } catch (e) {
+      print(e);
+    }
+  }
+
+  static Future get(endpoint, token) async {
+    try {
+      var response = await client.get(buildUrl(endpoint), headers: {
+        'Content-type': 'application/json',
+        'Accept': 'application/json',
+        'Authorization': 'Bearer $token'
+      });
       return jsonDecode(response.body);
     } catch (e) {
       print(e);

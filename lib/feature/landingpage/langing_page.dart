@@ -1,8 +1,10 @@
 import 'package:ecom1/feature/categories/categories.dart';
 import 'package:ecom1/feature/homepage/homepage.dart';
+import 'package:ecom1/feature/landingpage/landing_controller.dart';
 import 'package:ecom1/feature/profile/profile.dart';
 import 'package:ecom1/foundation/sp_icons/sp_icon.dart';
 import 'package:flutter/material.dart';
+import 'package:get/get.dart';
 
 class LandingPage extends StatefulWidget {
   LandingPage({Key? key}) : super(key: key);
@@ -14,7 +16,7 @@ class LandingPage extends StatefulWidget {
 class _LandingPageState extends State<LandingPage> {
   int currentIndex = 0;
   List pages = [Homepage(), Categories(), Profile()];
-
+  final landingcontroller = Get.put(LandingController());
   @override
   Widget build(BuildContext context) {
     return Scaffold(
