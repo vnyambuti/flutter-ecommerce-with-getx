@@ -20,6 +20,7 @@ class MyApp extends StatelessWidget {
       theme: ThemeData(
         textTheme: TextTheme(
             headline6: TextStyle(
+              
                 fontSize: 14.5,
                 letterSpacing: 0.15,
                 color: AppColors.headline6),

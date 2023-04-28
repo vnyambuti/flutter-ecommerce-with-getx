@@ -113,7 +113,7 @@ class Reset extends StatelessWidget {
                     style: TextStyle(
                         fontSize: 12, color: AppColors.captiontextColor1)),
                 TextSpan(
-                    text: " Register  ",
+                    text: "Proceed ",
                     style: TextStyle(fontSize: 14, color: AppColors.red),
                     recognizer: TapGestureRecognizer()
                       ..onTap = () {
